@@ -5,6 +5,8 @@
  */
 package Product;
 
+import java.time.LocalDateTime;
+
 /**
  *
  * @author Longtri
@@ -17,8 +19,24 @@ public class ProductDTO {
     private String material;
     private int categoryId;
     private String imageUrl;
-    private String createdAt;
+    private LocalDateTime createdAt;
     private int productAmount;
+    private double avgRating;
+    private int totalReviews;
+
+    public ProductDTO(int productId, String name, String description, double price, String material, int categoryId, String imageUrl, LocalDateTime createdAt, int productAmount, double avgRating, int totalReviews) {
+        this.productId = productId;
+        this.name = name;
+        this.description = description;
+        this.price = price;
+        this.material = material;
+        this.categoryId = categoryId;
+        this.imageUrl = imageUrl;
+        this.createdAt = createdAt;
+        this.productAmount = productAmount;
+        this.avgRating = avgRating;
+        this.totalReviews = totalReviews;
+    }
 
     public int getProductId() {
         return productId;
@@ -76,11 +94,11 @@ public class ProductDTO {
         this.imageUrl = imageUrl;
     }
 
-    public String getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -91,6 +109,22 @@ public class ProductDTO {
     public void setProductAmount(int productAmount) {
         this.productAmount = productAmount;
     }
-    
+
+    public double getAvgRating() {
+        return avgRating;
+    }
+
+    public void setAvgRating(double avgRating) {
+        this.avgRating = avgRating;
+    }
+
+    public int getTotalReviews() {
+        return totalReviews;
+    }
+
+    public void setTotalReviews(int totalReviews) {
+        this.totalReviews = totalReviews;
+    }
+
     
 }
