@@ -19,12 +19,14 @@ public class ProductDTO {
     private String material;
     private int categoryId;
     private String imageUrl;
-    private LocalDateTime createdAt;
+    private String createdAt;
     private int productAmount;
-    private double avgRating;
-    private int totalReviews;
 
-    public ProductDTO(int productId, String name, String description, double price, String material, int categoryId, String imageUrl, LocalDateTime createdAt, int productAmount, double avgRating, int totalReviews) {
+    public ProductDTO() {
+    }
+
+    
+    public ProductDTO(int productId, String name, String description, double price, String material, int categoryId, String imageUrl, String createdAt, int productAmount) {
         this.productId = productId;
         this.name = name;
         this.description = description;
@@ -34,8 +36,6 @@ public class ProductDTO {
         this.imageUrl = imageUrl;
         this.createdAt = createdAt;
         this.productAmount = productAmount;
-        this.avgRating = avgRating;
-        this.totalReviews = totalReviews;
     }
 
     public int getProductId() {
@@ -94,11 +94,11 @@ public class ProductDTO {
         this.imageUrl = imageUrl;
     }
 
-    public LocalDateTime getCreatedAt() {
+    public String getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(LocalDateTime createdAt) {
+    public void setCreatedAt(String createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -110,21 +110,6 @@ public class ProductDTO {
         this.productAmount = productAmount;
     }
 
-    public double getAvgRating() {
-        return avgRating;
-    }
-
-    public void setAvgRating(double avgRating) {
-        this.avgRating = avgRating;
-    }
-
-    public int getTotalReviews() {
-        return totalReviews;
-    }
-
-    public void setTotalReviews(int totalReviews) {
-        this.totalReviews = totalReviews;
-    }
-
+    
     
 }

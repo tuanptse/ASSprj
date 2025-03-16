@@ -12,13 +12,7 @@ public class ProductDAO {
 
     public List<ProductDTO> getAllProducts() {
         List<ProductDTO> products = new ArrayList<>();
-        String sql = "SELECT p.product_id, p.name, p.description, p.price, p.material, " +
-                     "p.image_url, p.product_amount, p.category_id, p.created_at, " +
-                     "ISNULL(AVG(r.rating), 0) AS avg_rating, COUNT(r.review_id) AS total_reviews " +
-                     "FROM Products p " +
-                     "LEFT JOIN Reviews r ON p.product_id = r.product_id " +
-                     "GROUP BY p.product_id, p.name, p.description, p.price, p.material, " +
-                     "p.image_url, p.product_amount, p.category_id, p.created_at";
+        String sql = "SELECT * FROM products";
 
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql);
@@ -33,11 +27,9 @@ public class ProductDAO {
                         rs.getString("material"),
                         rs.getInt("category_id"),
                         rs.getString("image_url"),
-                        rs.getTimestamp("created_at").toLocalDateTime(), // Chuyển về LocalDateTime
-                        rs.getInt("product_amount"),
-                        rs.getDouble("avg_rating"),
-                        rs.getInt("total_reviews"));
-
+                        rs.getString("created_at"), 
+                        rs.getInt("product_amount")
+                );
                 products.add(p);
             }
         } catch (Exception e) {

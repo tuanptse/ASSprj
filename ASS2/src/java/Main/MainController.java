@@ -25,14 +25,10 @@ public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         try {
-            // Lấy danh sách sản phẩm từ database
             ProductDAO productDAO = new ProductDAO();
             List<ProductDTO> productList = productDAO.getAllProducts();
-
-            // Gửi danh sách sản phẩm sang trang JSP
             request.setAttribute("products", productList);
-            
-            // Chuyển hướng về trang Main.jsp
+          
             request.getRequestDispatcher("Main.jsp").forward(request, response);
 
         } catch (Exception e) {
