@@ -19,14 +19,13 @@ public class ProductDTO {
     private String material;
     private int categoryId;
     private String imageUrl;
-    private String createdAt;
+    private LocalDateTime createdAt;
     private int productAmount;
 
     public ProductDTO() {
     }
 
-    
-    public ProductDTO(int productId, String name, String description, double price, String material, int categoryId, String imageUrl, String createdAt, int productAmount) {
+    public ProductDTO(int productId, String name, String description, double price, String material, int categoryId, String imageUrl, LocalDateTime createdAt, int productAmount) {
         this.productId = productId;
         this.name = name;
         this.description = description;
@@ -94,11 +93,11 @@ public class ProductDTO {
         this.imageUrl = imageUrl;
     }
 
-    public String getCreatedAt() {
+    public LocalDateTime getCreatedAt() {
         return createdAt;
     }
 
-    public void setCreatedAt(String createdAt) {
+    public void setCreatedAt(LocalDateTime createdAt) {
         this.createdAt = createdAt;
     }
 
@@ -110,6 +109,8 @@ public class ProductDTO {
         this.productAmount = productAmount;
     }
 
+    
+   
     
     
 }

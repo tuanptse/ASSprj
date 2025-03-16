@@ -5,17 +5,18 @@
 
     <servlet>
         <servlet-name>MainController</servlet-name>
-        <servlet-class>controller.MainController</servlet-class>
+        <servlet-class>Main.MainController</servlet-class>
     </servlet>
 
     <servlet-mapping>
-        <servlet-name>MainController</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
+    <servlet-name>MainController</servlet-name>
+    <url-pattern>/MainController</url-pattern>
+    <url-pattern>/home</url-pattern>
+</servlet-mapping>
 
     <!-- Cấu hình trang mặc định -->
     <welcome-file-list>
-    <welcome-file>jsp/Main.jsp</welcome-file>
+    <welcome-file>Main.jsp</welcome-file>
 </welcome-file-list>
 
 </web-app>

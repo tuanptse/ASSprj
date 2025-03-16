@@ -24,17 +24,37 @@ import Product.ProductDTO;
 public class MainController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String action = request.getParameter("action");
+        if (action == null) action = "home";
+        ProductDAO productDAO = new ProductDAO();
         try {
-            ProductDAO productDAO = new ProductDAO();
-            List<ProductDTO> productList = productDAO.getAllProducts();
-            request.setAttribute("products", productList);
-          
-            request.getRequestDispatcher("Main.jsp").forward(request, response);
+            
+           switch (action) {
+                case "loadProducts":  // Hiển thị tất cả sản phẩm
+                    List<ProductDTO> productList = productDAO.getAllProducts();
+                    request.setAttribute("products", productList);
+                    request.getRequestDispatcher("Main.jsp").forward(request, response);
+                    break;
 
-        } catch (Exception e) {
-            e.printStackTrace();
+                case "loadCategory":  // Lọc sản phẩm theo danh mục
+                    String categoryId = request.getParameter("category");
+                    List<ProductDTO> categoryProducts = productDAO.getProductsByCategory(categoryId);
+                    request.setAttribute("category", categoryId);
+                    request.setAttribute("products", categoryProducts);
+                    request.getRequestDispatcher("category.jsp").forward(request, response);
+                    break;
+
+                default:  // Trang chủ mặc định
+                    request.getRequestDispatcher("Main.jsp").forward(request, response);
+                    break;
+
+        } 
+        }catch (Exception e) {
+             request.setAttribute("error", "Lỗi khi xử lý yêu cầu: " + e.getMessage());
+    request.getRequestDispatcher("error.jsp").forward(request, response);
         }
     }
+    
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
