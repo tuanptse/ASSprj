@@ -2,20 +2,6 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
-        <group>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/src/java/Product/ProductDTO.java</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/src/java/Product/ProductDAO.java</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/META-INF/context.xml</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/css/design.css</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/register.jsp</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/src/java/Main/MainController.java</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/Main.jsp</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/category.jsp</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/WEB-INF/web.xml</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/error.jsp</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/css/styles.css</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/src/java/utils/DBUtils.java</file>
-            <file>file:/C:/Users/phanp/Desktop/PRJ/ASSprj/ASS2/web/login.jsp</file>
-        </group>
+        <group/>
     </open-files>
 </project-private>
