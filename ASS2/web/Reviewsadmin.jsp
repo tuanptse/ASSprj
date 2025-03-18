@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <title>Reviews Admin</title>
-  <link rel="stylesheet" href="../css/admin.css">
+  <link rel="stylesheet" href="<%= request.getContextPath()%>/css/admin.css">
   <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
 </head>
 <body>
