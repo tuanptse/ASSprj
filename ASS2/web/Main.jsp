@@ -9,7 +9,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Helios Clone</title>
-        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="<%= request.getContextPath()%>/css/styles.css">
+
     </head>
     <body>
 
@@ -20,22 +21,40 @@
                 <ul>
                     <li class="dropdown">
                         <a href="#">MENU</a>
-                        <div class="dropdown-content">
+                         <div class="dropdown-content">
                             <div class="menu-column">
                                 <h4>SHOP ALL</h4>
                                 <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=nhanbacnam">NHẪN BẠC NAM</a>
                                 <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=vongtaybac">VÒNG TAY BẠC</a>
                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=daychuyenbac">DÂY CHUYỀN BẠC</a>
                                 <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=matdaychuyenbac">MẶT DÂY CHUYỀN BẠC S925</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=khuyentaibacnam">KHUYÊN TAI BẠC NAM</a>
-                            </div>
+                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=khuyentaibacnam">KHUYÊN TAI BẠC NAM</a>  
                         </div>
                     </li>
+
+                    <li><a href="#">COLLECTIONS</a></li>
+                    <li><a href="#" class="highlight">CUỐI MÙA</a></li>
                 </ul>
-            </nav>   
-            <div class="logo">HELIOS</div>
+            </nav>       
+            <div class="logo">𝓗𝓔𝓛𝓘𝓞𝓢</div>
             <div class="user-options">
-                <a style="color: white" href="jsp/register.jsp">Đăng ký </a> <span style="color: white">/</span> <a style="color: white" href="jsp/login.jsp"> Đăng nhập</a>
+                <div class="dropdown">
+
+                    <div class="dropdown-content">
+                        <a href="#">English</a>
+                        <a href="#">日本語</a>
+                        <a href="#">Français</a>
+                    </div>
+                </div>
+
+                <style>
+
+                </style>
+
+                <a style="color: white" href="<%= request.getContextPath()%>/jsp/register.jsp">Đăng ký</a>
+
+                <span style="color: white">/</span> 
+                <a style="color: white" href="<%= request.getContextPath()%>/jsp/login.jsp"> Đăng nhập</a>
                 <a href="#" class="cart">🛒</a>
             </div>
         </header>
@@ -71,7 +90,24 @@
         <footer>
             <p>&copy; 2025 Helios. All rights reserved.</p>
         </footer>
-        
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                let header = document.querySelector("header");
+
+                // Khi không di chuột vào, header sẽ mất màu
+                header.classList.add("transparent");
+
+                // Khi trỏ chuột vào header, nó hiện màu đen
+                header.addEventListener("mouseenter", function () {
+                    header.classList.remove("transparent");
+                });
+
+                // Khi chuột rời khỏi header, nó trở lại trong suốt
+                header.addEventListener("mouseleave", function () {
+                    header.classList.add("transparent");
+                });
+            });
+        </script>
 
     </body>
 </html>
