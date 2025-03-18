@@ -41,10 +41,10 @@
                 
 
 
-                <a style="color: white" href="<%= request.getContextPath()%>/jsp/register.jsp">Đăng ký</a>
+                <a style="color: white" href="<%= request.getContextPath()%>/register.jsp">Đăng ký</a>
 
                 <span style="color: white">/</span> 
-                <a style="color: white" href="<%= request.getContextPath()%>/jsp/login.jsp"> Đăng nhập</a>
+                <a style="color: white" href="<%= request.getContextPath()%>/login.jsp"> Đăng nhập</a>
                 <a href="#" class="cart">🛒</a>
             </div>
         </header>

@@ -38,23 +38,13 @@
             </nav>       
             <div class="logo">𝓗𝓔𝓛𝓘𝓞𝓢</div>
             <div class="user-options">
-                <div class="dropdown">
+                
 
-                    <div class="dropdown-content">
-                        <a href="#">English</a>
-                        <a href="#">日本語</a>
-                        <a href="#">Français</a>
-                    </div>
-                </div>
 
-                <style>
-
-                </style>
-
-                <a style="color: white" href="<%= request.getContextPath()%>/jsp/register.jsp">Đăng ký</a>
+                <a style="color: white" href="<%= request.getContextPath()%>/register.jsp">Đăng ký</a>
 
                 <span style="color: white">/</span> 
-                <a style="color: white" href="<%= request.getContextPath()%>/jsp/login.jsp"> Đăng nhập</a>
+                <a style="color: white" href="<%= request.getContextPath()%>/login.jsp"> Đăng nhập</a>
                 <a href="#" class="cart">🛒</a>
             </div>
         </header>
