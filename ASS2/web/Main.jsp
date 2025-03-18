@@ -38,18 +38,8 @@
             </nav>       
             <div class="logo">𝓗𝓔𝓛𝓘𝓞𝓢</div>
             <div class="user-options">
-                <div class="dropdown">
+                
 
-                    <div class="dropdown-content">
-                        <a href="#">English</a>
-                        <a href="#">日本語</a>
-                        <a href="#">Français</a>
-                    </div>
-                </div>
-
-                <style>
-
-                </style>
 
                 <a style="color: white" href="<%= request.getContextPath()%>/jsp/register.jsp">Đăng ký</a>
 
