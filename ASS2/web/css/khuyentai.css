@@ -1,0 +1,179 @@
+/* Reset */
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    background-color: #000; /* Nền đen */
+    color: #fff;            /* Chữ trắng */
+}
+
+/* HEADER BANNER */
+.header-banner {
+    background-color: #000;
+    padding-bottom: 30px; /* Tạo khoảng trống dưới banner */
+}
+
+/* NAVBAR */
+.top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #111;
+}
+
+.menu-left, .menu-right {
+    display: flex;
+    gap: 20px;
+}
+
+/* Dropdown menu */
+.menu-left li {
+    list-style: none;
+    cursor: pointer;
+    position: relative; /* cần để dropdown-content tuyệt đối so với li */
+}
+
+/* Nút CUỐI MÙA highlight */
+.highlight {
+    background-color: #ffbb00;
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+/* .dropdown-content ẩn mặc định */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: #333;
+    min-width: 140px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    z-index: 999;
+}
+
+.dropdown-content li {
+    padding: 8px 12px;
+    white-space: nowrap;
+}
+
+/* Màu hover cho dropdown item */
+.dropdown-content li:hover {
+    background-color: #444;
+}
+
+/* Khi hover vào li.dropdown => hiển thị .dropdown-content */
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+/* Link trong dropdown */
+.dropdown-content li a {
+    color: #fff;
+    text-decoration: none;
+    display: block;
+}
+
+/* BANNER CONTENT */
+.banner-content {
+    text-align: center;
+    padding: 40px 20px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.banner-content h1 {
+    font-size: 48px;
+    margin-bottom: 10px;
+    font-family: 'Courier New', monospace;
+}
+
+.banner-content h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.banner-content p {
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+/* MAIN */
+main {
+    display: flex;
+}
+
+/* SIDEBAR (BỘ LỌC) */
+aside {
+    width: 20%;
+    background-color: #111;
+    padding: 20px;
+}
+
+.filter-box h3 {
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.price-filter {
+    margin-bottom: 20px;
+}
+
+.price-filter input[type="number"] {
+    width: 100%;
+    margin-bottom: 5px;
+    padding: 5px;
+    background-color: #222;
+    color: #fff;
+    border: none;
+}
+
+.price-filter input[type="range"] {
+    width: 100%;
+    margin-bottom: 5px;
+}
+
+.size-options label {
+    display: block;
+    margin-bottom: 8px;
+}
+
+/* PRODUCT GRID */
+.product-grid {
+    width: 80%;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    background-color: #000;
+}
+
+.product {
+    width: calc(33% - 20px);
+    background-color: #111;
+    padding: 15px;
+    text-align: center;
+    transition: 0.3s;
+}
+
+.product:hover {
+    transform: scale(1.02);
+}
+
+.product img {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.product h4 {
+    margin-bottom: 8px;
+    font-size: 18px;
+}
+
+.product p {
+    color: #ffbb00;
+    margin: 0;
+}

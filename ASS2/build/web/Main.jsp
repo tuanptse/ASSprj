@@ -24,11 +24,11 @@
                          <div class="dropdown-content">
                             <div class="menu-column">
                                 <h4>SHOP ALL</h4>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=nhanbacnam">NHẪN BẠC NAM</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=vongtaybac">VÒNG TAY BẠC</a>
-                               <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=daychuyenbac">DÂY CHUYỀN BẠC</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=matdaychuyenbac">MẶT DÂY CHUYỀN BẠC S925</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=khuyentaibacnam">KHUYÊN TAI BẠC NAM</a>  
+                                <a href="<%= request.getContextPath() %>/nhan.jsp">NHẪN</a>
+                                <a href="<%= request.getContextPath() %>/vongtay.jsp">VÒNG TAY</a>
+                                <a href="<%= request.getContextPath() %>/daychuyen.jsp">DÂY CHUYỀN</a>
+                                <a href="<%= request.getContextPath() %>/matdaychuyen.jsp">MẶT DÂY CHUYỀN</a>
+                                <a href="<%= request.getContextPath() %>/khuyentai.jsp">KHUYÊN TAI</a>  
                         </div>
                     </li>
 
