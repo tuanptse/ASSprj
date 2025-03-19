@@ -12,8 +12,7 @@ public class ProductDAO {
 
     public List<ProductDTO> getAllProducts() {
         List<ProductDTO> products = new ArrayList<>();
-        String sql = "SELECT product_id, name, description,.price,material,category_id,image_url,created_at,product_amount FROM products";
-
+        String sql = "SELECT product_id, name, description,price,material,category_id,image_url,created_at,product_amount FROM products";
         try (Connection conn = DBUtils.getConnection();
                 PreparedStatement ps = conn.prepareStatement(sql);
                 ResultSet rs = ps.executeQuery()) {
