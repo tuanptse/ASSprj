@@ -90,8 +90,7 @@ public final class Main_jsp extends org.apache.jasper.runtime.HttpJspBase
       out.write("                        </div>\r\n");
       out.write("                    </li>\r\n");
       out.write("\r\n");
-      out.write("                    <li><a href=\"#\">COLLECTIONS</a></li>\r\n");
-      out.write("                    <li><a href=\"#\" class=\"highlight\">CUỐI MÙA</a></li>\r\n");
+      out.write("\r\n");
       out.write("                </ul>\r\n");
       out.write("            </nav>       \r\n");
       out.write("            <div class=\"logo\">𝓗𝓔𝓛𝓘𝓞𝓢</div>\r\n");

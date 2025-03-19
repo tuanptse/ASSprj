@@ -32,8 +32,7 @@
                         </div>
                     </li>
 
-                    <li><a href="#">COLLECTIONS</a></li>
-                    <li><a href="#" class="highlight">CUỐI MÙA</a></li>
+
                 </ul>
             </nav>       
             <div class="logo">𝓗𝓔𝓛𝓘𝓞𝓢</div>
