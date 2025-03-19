@@ -61,8 +61,8 @@
 
                 <% if (products != null && !products.isEmpty()) {
                     for (ProductDTO p : products) {%>
-                <div class="product">
-                    <img src="<%= request.getContextPath()%>/images/<%= p.getImageUrl()%>" alt="<%= p.getName()%>">
+                <div class="products">
+                    <img src="<%= p.getImageUrl() %>" alt="<%= p.getName() %>">
                     <h3><%= p.getName()%></h3>
                     <p><strong><%= String.format("%,.0f", p.getPrice())%> VNĐ</strong></p>
                     <p><%= p.getDescription()%></p>
@@ -101,3 +101,4 @@
 
     </body>
 </html>
+z
