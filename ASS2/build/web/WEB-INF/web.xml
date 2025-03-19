@@ -15,9 +15,10 @@
 </servlet-mapping>
 
     <!-- Cấu hình trang mặc định -->
-    <welcome-file-list>
-    <welcome-file>Main.jsp</welcome-file>
+<welcome-file-list>
+    <welcome-file>MainController</welcome-file>
 </welcome-file-list>
+
 
 </web-app>
 
