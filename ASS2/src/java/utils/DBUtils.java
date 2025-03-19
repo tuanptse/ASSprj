@@ -1,17 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package utils;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
- * @author Longtri
+ * @author DUNGHUYNH
  */
 public class DBUtils {
     
@@ -28,21 +25,21 @@ public class DBUtils {
         try {
             Class.forName("com.microsoft.sqlserver.jdbc.SQLServerDriver");
         } catch (ClassNotFoundException ex) {
-            System.out.println("ASS2: Can not load JDBC Driver. Please check your pom file");
+            System.out.println("PRJ301DEMO: Can not load JDBC Driver. Please check your pom file");
         }
         
         try {
             Connection con = DriverManager.getConnection(url, userID, password);
             return con;
         } catch (SQLException ex) {
-            System.out.println("ASS2: Can not connect SQL Server. Reason: " + ex.getMessage());                        
+            System.out.println("PRJ301DEMO: Can not connect SQL Server. Reason: " + ex.getMessage());                        
         }
         return null;
     }
     
     
     private final static String serverName = "localhost";
-    private final static String dbName = "fashion_accessories";
+    private final static String dbName = "FAPRJ301";
     private final static String portNumber = "1433";
     private final static String instance = "";//LEAVE THIS ONE EMPTY IF YOUR SQL IS A SINGLE INSTANCE
     private final static String userID = "sa";
