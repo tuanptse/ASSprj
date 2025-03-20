@@ -1,95 +1,86 @@
-<%-- 
-    Document   : category
-    Created on : Mar 16, 2025, 8:05:02 PM
-    Author     : Longtri
---%>
-
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.List, Product.ProductDAO, Product.ProductDTO" %>
+<%@ page import="java.util.List, Product.ProductDTO, Category.CategoryDTO" %>
 
 <%
-    String category = request.getParameter("category");
-
-    ProductDAO dao = new ProductDAO();
-    List<ProductDTO> products = dao.getProductsByCategory(category);
+    List<ProductDTO> products = (List<ProductDTO>) request.getAttribute("products");
+    List<CategoryDTO> categories = (List<CategoryDTO>) request.getAttribute("categories");
+    String categoryName = (String) request.getAttribute("categoryName");
 %>
 <!DOCTYPE html>
 <html lang="vi">
-    <head>
-        <meta charset="UTF-8">
-        <title>Danh mục sản phẩm</title>
-        <link rel="stylesheet" href="css/styles.css">
-    </head>
-    <body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= categoryName != null ? categoryName : "Danh mục sản phẩm" %></title>
+    <link rel="stylesheet" href="<%= request.getContextPath()%>/css/styles.css">
+</head>
+<body>
 
-        <header>
-            <nav>
-                <ul>
-                    <li class="dropdown">
-                        <a href="#">MENU</a>
-                        <div class="dropdown-content">
-                            <div class="menu-column">
-                                <h4>SHOP ALL</h4>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=nhanbacnam">NHẪN BẠC NAM</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=vongtaybac">VÒNG TAY BẠC</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=daychuyenbac">DÂY CHUYỀN BẠC</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=matdaychuyenbac">MẶT DÂY CHUYỀN BẠC S925</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=khuyentaibacnam">KHUYÊN TAI BẠC NAM</a>
-                            </div>
-                        </div>
-                    </li>
+<!-- HEADER -->
+<header>
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="#">MENU</a>
+                <ul class="dropdown-content">
+                    <% if (categories != null && !categories.isEmpty()) {
+                        for (CategoryDTO category : categories) { %>
+                            <li>
+                                <a href="MainController?action=loadCategory&category=<%= category.getCategoryId() %>">
+                                    <%= category.getCategoryName() %>
+                                </a>
+                            </li>
+                    <%  }
+                    } else { %>
+                        <li><a href="#">Không có danh mục</a></li>
+                    <% } %>
                 </ul>
-            </nav> 
-            <div class="logo">HELIOS</div>
-            <div class="user-options">
-                <a style="color: white" href="jsp/register.jsp">Đăng ký </a> <span style="color: white">/</span> <a style="color: white" href="jsp/login.jsp"> Đăng nhập</a>
-                <a href="#" class="cart">🛒</a>
-            </div>
-        </header>
+            </li>
+            <li><a href="#">COLLECTIONS</a></li>
+            <li><a href="#" class="highlight">CUỐI MÙA</a></li>
+        </ul>
+    </nav>       
+<div class="logo">
+    <a href="MainController?action=loadProducts&page=1">𝓗𝓔𝓛𝓘𝓞𝓢</a>
+</div>
 
-        <section class="banner">
-            <img src="https://raw.githubusercontent.com/tuanptse/ASSprj/main/ASS2/web/images/banner.jpg" alt="Helios Banner">
-        </section>
-        <div class="container">
-            <!-- Sidebar -->
-            <aside class="sidebar">
-                <div class="price-filter">
-                    <h3>Giá <span class="toggle-filter">−</span></h3>
-                    <div class="filter-content">
-                        <div class="price-input">
-                            <input type="number" id="minPrice" value="0"> - 
-                            <input type="number" id="maxPrice" value="4150000">
-                        </div>
-                        <div class="price-slider">
-                            <input type="range" id="priceRangeMin" min="0" max="4150000" value="0">
-                            <input type="range" id="priceRangeMax" min="0" max="4150000" value="4150000">
-                        </div>
-                    </div>
-                </div>
-                <h2>Danh mục: <%= (category != null) ? category.toUpperCase() : "Chưa chọn"%></h2>
-            </aside>
-            <div class="products">
-                <%
-                    if (products != null && !products.isEmpty()) {
-                        for (ProductDTO product : products) {
-                %>
-                <div class="product-card">
-                    <img src="<%= product.getImageUrl()%>" alt="<%= product.getName()%>">
-                    <h3><%= product.getName()%></h3>
-                    <p><%= product.getPrice()%> VND</p>
+
+    <div class="user-options">
+        <a style="color: white" href="<%= request.getContextPath()%>/register.jsp">Đăng ký</a>
+        <span style="color: white">/</span> 
+        <a style="color: white" href="<%= request.getContextPath()%>/login.jsp"> Đăng nhập</a>
+        <a href="#" class="cart">🛒</a>
+    </div>
+</header>
+
+<!-- TIÊU ĐỀ DANH MỤC -->
+<section class="category-header">
+    <h2><%= categoryName != null ? categoryName : "Sản phẩm" %></h2>
+</section>
+
+<!-- DANH SÁCH SẢN PHẨM -->
+<section class="products">
+    <div class="product-list">
+        <% if (products != null && !products.isEmpty()) {
+            for (ProductDTO p : products) { %>
+                <div class="product">
+                    <img src="<%= p.getImageUrl()%>" alt="<%= p.getName()%>">
+                    <h3><%= p.getName()%></h3>
+                    <p><strong><%= String.format("%,.0f", p.getPrice())%> VNĐ</strong></p>
+                    <p><%= p.getDescription()%></p>
                     <button>Thêm nhanh</button>
                 </div>
-                <%
-                    }
-                } else {
-                %>
-                <p>Không có sản phẩm nào trong danh mục này.</p>
-                <%
-                    }
-                %>
-            </div>
-        </div>
+        <%  }
+        } else { %>
+            <p>Không có sản phẩm nào trong danh mục này.</p>
+        <% } %>
+    </div>
+</section>
 
-    </body>
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2025 Helios. All rights reserved.</p>
+</footer>
+
+</body>
 </html>
-

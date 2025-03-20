@@ -182,3 +182,23 @@ tbody td {
   font-weight: bold;
   border-color: #007bff;
 }
+.logo {
+  font-family: 'UnifrakturCook', sans-serif;
+  margin-right: 30px;
+  color: #333 !important; /* Đảm bảo màu chữ là màu mặc định */
+  font-weight: 700;
+  text-decoration: none !important; /* Loại bỏ gạch chân */
+  font-size: 24px;
+}
+
+.logo a {
+  color: inherit !important; /* Giữ màu chữ của logo */
+  text-decoration: none !important; /* Loại bỏ gạch chân */
+}
+
+.logo a:hover,
+.logo a:visited {
+  color: inherit !important; /* Khi hover hoặc đã click vẫn giữ màu chữ */
+  text-decoration: none !important;
+}
+

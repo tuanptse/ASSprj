@@ -1,7 +1,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<%@ page import="java.util.List, Product.ProductDTO" %>
+<%@ page import="java.util.List, Product.ProductDTO, Category.CategoryDTO" %>
 <%
     List<ProductDTO> products = (List<ProductDTO>) request.getAttribute("products");
+    List<CategoryDTO> categories = (List<CategoryDTO>) request.getAttribute("categories");
+    int currentPage = (request.getAttribute("currentPage") != null) ? (Integer) request.getAttribute("currentPage") : 1;
+    int totalPages = (request.getAttribute("totalPages") != null) ? (Integer) request.getAttribute("totalPages") : 1;
 %>
 <!DOCTYPE html>
 <html lang="vi">
@@ -10,39 +13,36 @@
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Helios Clone</title>
         <link rel="stylesheet" href="<%= request.getContextPath()%>/css/styles.css">
-
     </head>
     <body>
 
         <!-- HEADER -->
         <header>
-
             <nav>
                 <ul>
                     <li class="dropdown">
                         <a href="#">MENU</a>
-                         <div class="dropdown-content">
-                            <div class="menu-column">
-                                <h4>SHOP ALL</h4>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=nhanbacnam">NHẪN BẠC NAM</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=vongtaybac">VÒNG TAY BẠC</a>
-                               <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=daychuyenbac">DÂY CHUYỀN BẠC</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=matdaychuyenbac">MẶT DÂY CHUYỀN BẠC S925</a>
-                                <a href="${pageContext.request.contextPath}/MainController?action=loadCategory&category=khuyentaibacnam">KHUYÊN TAI BẠC NAM</a>  
-                        </div>
+                        <ul class="dropdown-content">
+                            <% if (categories != null && !categories.isEmpty()) {
+                                for (CategoryDTO category : categories) { %>
+                                    <li>
+                                        <a href="MainController?action=loadCategory&category=<%= category.getCategoryId() %>">
+                                            <%= category.getCategoryName() %>
+                                        </a>
+                                    </li>
+                            <%  }
+                            } else { %>
+                                <li><a href="#">Không có danh mục</a></li>
+                            <% } %>
+                        </ul>
                     </li>
-
                     <li><a href="#">COLLECTIONS</a></li>
                     <li><a href="#" class="highlight">CUỐI MÙA</a></li>
                 </ul>
             </nav>       
             <div class="logo">𝓗𝓔𝓛𝓘𝓞𝓢</div>
             <div class="user-options">
-                
-
-
                 <a style="color: white" href="<%= request.getContextPath()%>/register.jsp">Đăng ký</a>
-
                 <span style="color: white">/</span> 
                 <a style="color: white" href="<%= request.getContextPath()%>/login.jsp"> Đăng nhập</a>
                 <a href="#" class="cart">🛒</a>
@@ -58,28 +58,28 @@
         <section class="products">
             <h2>Sản phẩm mới</h2>
             <div class="product-list">
-
                 <% if (products != null && !products.isEmpty()) {
-                    for (ProductDTO p : products) {%>
-                <div class="products">
-                    <img src="<%= p.getImageUrl() %>" alt="<%= p.getName() %>">
+                        for (ProductDTO p : products) {%>
+                <div class="product">
+                    <img src="<%= p.getImageUrl()%>" alt="<%= p.getName()%>">
                     <h3><%= p.getName()%></h3>
                     <p><strong><%= String.format("%,.0f", p.getPrice())%> VNĐ</strong></p>
                     <p><%= p.getDescription()%></p>
-
                     <button>Thêm nhanh</button>
                 </div>
                 <%  }
-            } else { %>
+                } else { %>
                 <p>Không có sản phẩm nào để hiển thị.</p>
                 <% }%>
             </div>
         </section>
+        <jsp:include page="paging.jsp"/>
 
         <!-- FOOTER -->
         <footer>
             <p>&copy; 2025 Helios. All rights reserved.</p>
         </footer>
+
         <script>
             document.addEventListener("DOMContentLoaded", function () {
                 let header = document.querySelector("header");
@@ -101,4 +101,3 @@
 
     </body>
 </html>
-z

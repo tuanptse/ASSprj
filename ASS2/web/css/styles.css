@@ -264,3 +264,14 @@ nav ul li {
     position: relative;
     z-index: 2;
 }
+.logo a {
+    color: white !important;  /* Giữ màu trắng */
+    text-decoration: none !important; /* Loại bỏ gạch chân */
+    font-weight: bold;
+    font-size: 24px;
+}
+
+.logo a:hover {
+    color: white !important; /* Không đổi màu khi hover */
+    text-decoration: none !important;
+}
