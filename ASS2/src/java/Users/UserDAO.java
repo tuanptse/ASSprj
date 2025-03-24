@@ -29,4 +29,42 @@ public class UserDAO {
         }
         return users;
     }
+    public UserDTO checkLogin(String email, String password_hash) throws SQLException {
+        UserDTO user = null;
+        Connection conn = null;
+        PreparedStatement ptm = null;
+        ResultSet rs = null;
+        String sql = "SELECT * FROM [dbo].[tblUser] WHERE [userID] = ? AND [password] = ?";
+        try {
+            conn = DBUtils.getConnection();
+            if (conn != null) {
+                ptm = conn.prepareStatement(sql);
+                ptm.setString(1, email);
+                ptm.setString(2, password_hash);
+                rs = ptm.executeQuery();
+                if (rs.next()) {
+                    int userId = rs.getInt("userId"); 
+                    String name = rs.getString("name");
+                    String phone = rs.getString("phone");
+                    String address = rs.getString("address");
+                    String role = rs.getString("role");
+                    String createAt = rs.getString("createAt");                
+                    user = new UserDTO(userId, name, email, phone, address, role,createAt, password_hash);
+                }
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            if (rs != null) {
+                rs.close();
+            }
+            if (ptm != null) {
+                ptm.close();
+            }
+            if (conn != null) {
+                conn.close();
+            }
+        }
+        return user;
+    }
 }

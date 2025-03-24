@@ -105,6 +105,8 @@ public class MainController extends HttpServlet {
             request.setAttribute("error", "Lỗi khi xử lý yêu cầu: " + e.getMessage());
             request.getRequestDispatcher("error.jsp").forward(request, response);
         }
+        
+        
     }
 
     @Override

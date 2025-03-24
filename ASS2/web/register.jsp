@@ -19,7 +19,7 @@
             <input type="password" name="password" placeholder="Mật khẩu" required>
             <button class="create-account" type="submit">Tạo tài khoản</button>
         </form>
-        <a href="Main.jsp" class="back-link">Quay lại cửa hàng</a>
+        <a href="MainController?action=loadProducts&page=1 " class="back-link">Quay lại cửa hàng</a>
     </div>
 </body>
 </html>

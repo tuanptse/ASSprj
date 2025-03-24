@@ -12,7 +12,8 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>Helios Clone</title>
-        <link rel="stylesheet" href="<%= request.getContextPath()%>/css/styles.css">
+        <link rel="stylesheet" href="<%= request.getContextPath()%>/css/styles.css?v=1">
+
     </head>
     <body>
 
@@ -54,25 +55,26 @@
             <img src="https://raw.githubusercontent.com/tuanptse/ASSprj/main/ASS2/web/images/banner.jpg" alt="Helios Banner">
         </section>
 
-        <!-- SẢN PHẨM MỚI -->
+        <!-- DANH SÁCH SẢN PHẨM -->
         <section class="products">
-            <h2>Sản phẩm mới</h2>
+            <h2 class="title">Sản phẩm mới</h2>
             <div class="product-list">
                 <% if (products != null && !products.isEmpty()) {
-                        for (ProductDTO p : products) {%>
-                <div class="product">
-                    <img src="<%= p.getImageUrl()%>" alt="<%= p.getName()%>">
-                    <h3><%= p.getName()%></h3>
-                    <p><strong><%= String.format("%,.0f", p.getPrice())%> VNĐ</strong></p>
-                    <p><%= p.getDescription()%></p>
-                    <button>Thêm nhanh</button>
-                </div>
+                    for (ProductDTO p : products) { %>
+                        <div class="product">
+                            <img class="product-img" src="<%= p.getImageUrl()%>" alt="<%= p.getName()%>">
+                            <h3><%= p.getName()%></h3>
+                            <p><strong><%= String.format("%,.0f", p.getPrice())%> VNĐ</strong></p>
+                           
+                            <button class="button-themnhanh">Thêm nhanh</button>
+                        </div>
                 <%  }
                 } else { %>
-                <p>Không có sản phẩm nào để hiển thị.</p>
-                <% }%>
+                    <p>Không có sản phẩm nào để hiển thị.</p>
+                <% } %>
             </div>
         </section>
+
         <jsp:include page="paging.jsp"/>
 
         <!-- FOOTER -->
