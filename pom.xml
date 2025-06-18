@@ -1,24 +1,44 @@
-<build> 
-<plugins> 
-<plugin> 
-<groupId>org.jacoco</groupId> 
-<artifactId>jacoco-maven-plugin</artifactId> 
-<version>0.8.12</version> <executions> 
-<execution> 
-<goals> 
-<goal>prepare-agent</goal> </goals> 
-</execution> 
-<execution> 
-<id>report</id> 
-<phase>prepare-package</phase> <goals> 
-<goal>report</goal> 
-</goals> 
-</execution> 
-</executions> 
-</plugin> 
-<plugin> 
-<groupId>org.sonarsource.scanner.maven</groupId> 
-<artifactId>sonar-maven-plugin</artifactId> 
-<version>3.11.0.3922</version> </plugin> 
-</plugins> 
-</build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" ... >
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.example</groupId>
+  <artifactId>your-artifact</artifactId>
+  <version>1.0-SNAPSHOT</version>
+
+  <properties> 
+    <java.version>11</java.version> 
+    <maven.compiler.source>${java.version}</maven.compiler.source> 
+    <maven.compiler.target>${java.version}</maven.compiler.target> 
+    <sonar.projectKey>YOUR_PROJECT_KEY_FROM_SONARCLOUD</sonar.projectKey>   
+    <sonar.organization>YOUR_ORGANIZATION_KEY_FROM_SONARCLOUD</sonar.organization> 
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jacoco</groupId>
+        <artifactId>jacoco-maven-plugin</artifactId>
+        <version>0.8.12</version>
+        <executions>
+          <execution>
+            <goals>
+              <goal>prepare-agent</goal>
+            </goals>
+          </execution>
+          <execution>
+            <id>report</id>
+            <phase>prepare-package</phase>
+            <goals>
+              <goal>report</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <plugin>
+        <groupId>org.sonarsource.scanner.maven</groupId>
+        <artifactId>sonar-maven-plugin</artifactId>
+        <version>3.11.0.3922</version>
+      </plugin>
+    </plugins>
+  </build>
+</project>
